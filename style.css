@@ -1,0 +1,244 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(42, 41, 49);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.miCanvas {
+  border-radius: 10px;
+  background: white;
+}
+
+.contenedorFlotante {
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+  --tamanioRange: 10px;
+}
+
+.paletaColoresFlotante {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  overflow: hidden;
+  transform: translateY(-50%) translateX(15px);
+  cursor: pointer;
+}
+
+
+.tamanioPincelFlotante {
+  -webkit-appearance: none;
+  appearance: none;
+  transform: rotate(-90deg) translateY(-75px);
+  transform-origin: left center;
+  margin: 10px;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Línea del slider */
+.tamanioPincelFlotante::-webkit-slider-runnable-track {
+  height: var(--tamanioRange);
+  background: #ccc;
+  border-radius: 4px;
+}
+
+/* Estilo del "thumb" (la bolita que se mueve) */
+.tamanioPincelFlotante::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: calc(var(--tamanioRange) * 1.5);
+  aspect-ratio: 1;
+  background: #000;
+  border-radius: 50%;
+  margin-top: calc((var(--tamanioRange) - var(--tamanioRange) * 1.5) / 2); /* centrar */
+}
+
+
+/* Firefox */
+/* .tamanioPincelFlotante::-moz-range-track {
+  height: 8px;
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.tamanioPincelFlotante::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #000;
+  border-radius: 50%;
+  border: none;
+} */
+
+.gridColores {
+  display: grid;
+  grid-template-areas:
+    "colorActual texto texto texto texto texto texto texto texto texto texto"
+    "colorActual color1 color2 color3 color4 color5 color6 color7 color8 color9 color10"
+    "colorActual color11 color12 color13 color14 color15 color16 color17 color18 color19 color20";
+  background-color: whitesmoke;
+  gap: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.colorActual {
+  background: black;
+  height: 100%;
+  aspect-ratio: 1;
+  grid-area: colorActual;
+  border-radius: 5px;
+  input{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.texto {
+  grid-area: texto;
+  align-self: center;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Colores del 1 al 20 */
+.color1 {
+  grid-area: color1;
+  background: #FF0000;
+  /* rojo */
+}
+
+.color2 {
+  grid-area: color2;
+  background: #FF7F00;
+  /* naranja */
+}
+
+.color3 {
+  grid-area: color3;
+  background: #FFFF00;
+  /* amarillo */
+}
+
+.color4 {
+  grid-area: color4;
+  background: #7FFF00;
+  /* chartreuse */
+}
+
+.color5 {
+  grid-area: color5;
+  background: #00FF00;
+  /* verde */
+}
+
+.color6 {
+  grid-area: color6;
+  background: #00FF7F;
+  /* verde agua */
+}
+
+.color7 {
+  grid-area: color7;
+  background: #00FFFF;
+  /* cian */
+}
+
+.color8 {
+  grid-area: color8;
+  background: #007FFF;
+  /* azul cielo */
+}
+
+.color9 {
+  grid-area: color9;
+  background: #0000FF;
+  /* azul */
+}
+
+.color10 {
+  grid-area: color10;
+  background: #7F00FF;
+  /* violeta */
+}
+
+.color11 {
+  grid-area: color11;
+  background: #8B00FF;
+  /* púrpura */
+}
+
+.color12 {
+  grid-area: color12;
+  background: #FF1493;
+  /* rosa fuerte */
+}
+
+.color13 {
+  grid-area: color13;
+  background: #FF69B4;
+  /* rosa */
+}
+
+.color14 {
+  grid-area: color14;
+  background: #FFB6C1;
+  /* rosado claro */
+}
+
+.color15 {
+  grid-area: color15;
+  background: #D3D3D3;
+  /* gris claro */
+}
+
+.color16 {
+  grid-area: color16;
+  background: #A9A9A9;
+  /* gris medio */
+}
+
+.color17 {
+  grid-area: color17;
+  background: #808080;
+  /* gris */
+}
+
+.color18 {
+  grid-area: color18;
+  background: #505050;
+  /* gris oscuro */
+}
+
+.color19 {
+  grid-area: color19;
+  background: #2F4F4F;
+  /* gris verdoso */
+}
+
+.color20 {
+  grid-area: color20;
+  background: #000000;
+  /* negro */
+}
+
+/* Estilos comunes para los colores */
+[class^="color"]:not(.colorActual):not(.texto) {
+  border: 1px solid black;
+  aspect-ratio: 1;
+  width: 15px;
+  border-radius: 2px;
+  cursor: pointer;
+}
