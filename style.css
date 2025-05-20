@@ -34,8 +34,15 @@ body {
   overflow: hidden;
   transform: translateY(-50%) translateX(15px);
   cursor: pointer;
+}.tamanioPincelFlotante {
+  -webkit-appearance: none;
+  appearance: none;
+  transform: rotate(-90deg) translateY(-75px);
+  transform-origin: left center;
+  margin: 10px;
+  background: transparent;
+  cursor: pointer;
 }
-
 
 .tamanioPincelFlotante {
   -webkit-appearance: none;
@@ -47,14 +54,12 @@ body {
   cursor: pointer;
 }
 
-/* Línea del slider */
 .tamanioPincelFlotante::-webkit-slider-runnable-track {
   height: var(--tamanioRange);
   background: #ccc;
   border-radius: 4px;
 }
 
-/* Estilo del "thumb" (la bolita que se mueve) */
 .tamanioPincelFlotante::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -62,7 +67,7 @@ body {
   aspect-ratio: 1;
   background: #000;
   border-radius: 50%;
-  margin-top: calc((var(--tamanioRange) - var(--tamanioRange) * 1.5) / 2); /* centrar */
+  margin-top: calc((var(--tamanioRange) - var(--tamanioRange) * 1.5) / 2);
 }
 
 

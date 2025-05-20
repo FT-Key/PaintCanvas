@@ -34,7 +34,6 @@ function dibujar(posX, posY, color = 'black', tamanio = 3) {
   ctx.fill();
 }
 
-
 canvas.addEventListener('click', (e) => {
   if (cerrandoContenedor) {
     cerrandoContenedor = false;
@@ -62,6 +61,10 @@ canvas.addEventListener('mousedown', (e) => {
     cerrandoContenedor = true;
     e.preventDefault();
   }
+});
+
+window.addEventListener('mouseup', () => {
+  painting = false;
 });
 
 canvas.addEventListener('mouseup', (e) => {
@@ -103,7 +106,7 @@ document.querySelectorAll('.gridColores div').forEach(div => {
     if (div.classList.contains('colorActual') || div.classList.contains('texto')) {
       return;
     }
-    
+
     const colorSeleccionado = getComputedStyle(div).backgroundColor;
     color = colorSeleccionado;
     console.log(colorSeleccionado)
